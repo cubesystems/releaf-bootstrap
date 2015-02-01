@@ -1,0 +1,4 @@
+gem install rails -v 4.1.9
+WITH_FRONTEND=true rails new dummy_site -d mysql -m template.rb
+cd dummy_site
+rspec

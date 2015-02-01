@@ -1,5 +1,5 @@
 BASE_URL = ENV["BASE_URL"] || "https://raw.githubusercontent.com/cubesystems/releaf-bootstrap/master/"
-public_site =  yes?('Install basic frontend support? (yes/no)')
+public_site = ENV['WITH_FRONTEND'].present? || yes?('Install basic frontend support? (yes/no)')
 
 gem 'whenever', require: false
 gem 'unicorn'
