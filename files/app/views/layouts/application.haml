@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title _application_name_
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body{class: "#{controller_name.dasherize}-controller"}
+    %main
+      %header
+        %ul.locales
+          - Releaf.available_locales.each do|locale|
+            %li
+              = link_to(t("locale.#{locale}"), "/" + locale)
+        .logo
+          = link_to(I18n.locale) do
+            %span= "_application_name_"
+        %ul.menu
+          - menu.each do|menu_node|
+            %li{class: (node_active?(menu_node) ? 'active' : '')}<>
+              = link_to(menu_node.name, menu_node.url)
+      %content
+        = yield
+
