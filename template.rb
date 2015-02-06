@@ -18,13 +18,13 @@ gem_group :development, :test do
   gem 'minitest'
   gem 'rspec-rails'
   gem "capybara"
-  gem "simplecov", require: false, platforms: :mri_19
+  gem "simplecov", require: false
   gem 'simplecov-rcov'
   gem "database_cleaner"
   gem 'shoulda-matchers'
   gem 'pry'
   gem 'pry-nav'
-  gem "factory_girl_rails"
+  gem "factory_girl_rails", require: false
 end
 
 run "bundle install"
