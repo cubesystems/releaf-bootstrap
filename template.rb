@@ -96,6 +96,7 @@ end
 
 gsub_file "config/initializers/releaf.rb", 'conf.available_locales = ["en"]', 'conf.available_locales = ["lv", "en"]', verbose: false
 remove_file "app/views/layouts/application.html.erb", verbose: false
+run "rm -Rf test"
 chmod "bin/rails", 0755, verbose: false
 chmod "bin/rake", 0755, verbose: false
 chmod "bin/spring", 0755, verbose: false
