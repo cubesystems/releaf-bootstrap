@@ -101,6 +101,7 @@ chmod "bin/rake", 0755, verbose: false
 chmod "bin/spring", 0755, verbose: false
 chmod "bin/ci", 0755, verbose: false
 
+run "cp config/secrets.yml config/example.secrets.yml"
 run "cp config/database.yml config/example.database.yml"
 run "cp config/environments/production.rb config/environments/staging.rb"
 
