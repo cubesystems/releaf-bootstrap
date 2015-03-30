@@ -13,7 +13,7 @@ feature "Home pages", js: true do
     create_resource do
       fill_in 'Name', with: "Lv"
       select "lv", from: "Locale"
-      fill_in_richtext("resource_content_attributes_intro_text_html", "<strong>We</strong> believe.")
+      fill_in_richtext "Intro text", with: "<strong>We</strong> believe."
     end
 
     visit "/lv"

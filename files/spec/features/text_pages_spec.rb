@@ -13,7 +13,7 @@ feature "Text pages", js: true do
 
     create_resource do
       fill_in 'Name', with: "About us"
-      fill_in_richtext("resource_content_attributes_text_html", "<strong>some</strong> text about us.")
+      fill_in_richtext "Text", with: "<strong>some</strong> text about us."
     end
 
     find(".node-fields .link a").click
