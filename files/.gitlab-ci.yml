@@ -1,0 +1,17 @@
+before_script:
+  - export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin
+  - export RAILS_ENV=test
+  - export COVERAGE=y
+  - export CI=y
+  - source $HOME/.rvm/scripts/rvm
+  - gem install bundler
+  - cp config/example.database.yml config/database.yml
+  - cp config/example.secrets.yml config/secrets.yml
+  - bundle install --without=development production --quiet
+  - rake db:create
+  - rake db:migrate
+rspec:
+  script:
+    - rake spec
+    - ssh gitlab_ci@office.cubesystems.lv mkdir -p coverages/_application_name_/
+    - rsync -a coverage/ gitlab_ci@office.cubesystems.lv:~/coverages/_application_name_/$CI_BUILD_REF_NAME/

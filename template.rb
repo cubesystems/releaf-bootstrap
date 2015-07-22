@@ -32,6 +32,8 @@ run "rails generate releaf:install"
 
 files = [
   ".gitignore",
+  ".gitlab-ci.yml",
+  ".rspec",
   "Capfile",
   "config/deploy.rb",
   "config/deploy/production.rb",
@@ -42,7 +44,6 @@ files = [
   "config/logrotate.conf",
   "config/initializers/assets.rb",
   "config/initializers/airbrake.rb",
-  "lib/tasks/ci.rake",
   "bin/rails",
   "bin/rake",
   "bin/spring",
@@ -52,8 +53,6 @@ files = [
   "spec/rails_helper.rb",
   "spec/spec_helper.rb",
   "spec/support/node_helpers.rb",
-  "bin/ci",
-  ".rspec"
 ]
 
 if public_site
@@ -100,7 +99,6 @@ run "rm -Rf test"
 chmod "bin/rails", 0755, verbose: false
 chmod "bin/rake", 0755, verbose: false
 chmod "bin/spring", 0755, verbose: false
-chmod "bin/ci", 0755, verbose: false
 
 run "cp config/secrets.yml config/example.secrets.yml"
 run "cp config/database.yml config/example.database.yml"
