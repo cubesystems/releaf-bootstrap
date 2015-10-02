@@ -46,9 +46,6 @@ files = [
   "config/logrotate.conf",
   "config/initializers/assets.rb",
   "config/initializers/airbrake.rb",
-  "bin/rails",
-  "bin/rake",
-  "bin/spring",
   "spec/factories/common.rb",
   "spec/factories/role.rb",
   "spec/factories/users.rb",
@@ -87,6 +84,15 @@ if public_site
     "spec/support/shared/controllers/node_controller_concern.rb",
     "spec/support/shared/models/node_model.rb",
   ]
+else
+  remove_file "app/models/node.rb", verbose: false
+
+  node_migration_file = `ls db/migrate | grep releaf_nodes`.strip
+  remove_file "db/migrate/#{node_migration_file}", verbose: false
+
+  files += [
+    "config/initializers/releaf.rb",
+  ]
 end
 
 files.each do|file|
@@ -98,9 +104,6 @@ end
 gsub_file "config/initializers/releaf.rb", 'conf.available_locales = ["en"]', 'conf.available_locales = ["lv", "en"]', verbose: false
 remove_file "app/views/layouts/application.html.erb", verbose: false
 run "rm -Rf test"
-chmod "bin/rails", 0755, verbose: false
-chmod "bin/rake", 0755, verbose: false
-chmod "bin/spring", 0755, verbose: false
 
 run "cp config/secrets.yml config/example.secrets.yml"
 run "cp config/database.yml config/example.database.yml"
@@ -112,6 +115,8 @@ rake "db:seed"
 
 rake "db:create", env: "test"
 rake "db:migrate", env: "test"
+
+run "spring binstub --all"
 
 route "mount_releaf_at '/admin'"
 if public_site
