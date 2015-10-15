@@ -101,7 +101,7 @@ files.each do|file|
   gsub_file file, /_application_name_/, @app_name, verbose: false
 end
 
-gsub_file "config/initializers/releaf.rb", 'conf.available_locales = ["en"]', 'conf.available_locales = ["lv", "en"]', verbose: false
+gsub_file "config/initializers/releaf.rb", 'config.available_locales = ["en"]', 'config.available_locales = ["lv", "en"]', verbose: false
 remove_file "app/views/layouts/application.html.erb", verbose: false
 run "rm -Rf test"
 
