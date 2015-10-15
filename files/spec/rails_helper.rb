@@ -107,8 +107,8 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner[:active_record].strategy = :truncation
     DatabaseCleaner[:active_record].clean_with(:truncation)
-    I18n.locale = Releaf.available_locales.first
-    I18n.default_locale = Releaf.available_locales.first
+    I18n.locale = Releaf.application.config.available_locales.first
+    I18n.default_locale = Releaf.application.config.available_locales.first
 
     # disable empty translation creation
     Releaf::I18nDatabase.create_missing_translations = false

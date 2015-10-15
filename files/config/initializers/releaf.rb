@@ -1,8 +1,8 @@
-Releaf.setup do |conf|
+Releaf.application.configure do
   # Default settings are commented out
 
   ### setup menu items and therefore available controllers
-  conf.menu = [
+  config.menu = [
     {
       :name => "permissions",
       :items =>   %w[releaf/permissions/users releaf/permissions/roles],
@@ -16,11 +16,11 @@ Releaf.setup do |conf|
 
   # controllers that must be accessible by user, but are not visible in menu
   # should be added to this list
-  conf.additional_controllers = ['releaf/permissions/profile']
+  config.additional_controllers = ['releaf/permissions/profile']
 
-  conf.components = [Releaf::I18nDatabase, Releaf::Permissions]
+  config.components = [Releaf::I18nDatabase, Releaf::Permissions]
 
-  conf.available_locales = ["lv", "en"]
-  # conf.layout_builder = CustomLayoutBuilder
+  config.available_locales = ["lv", "en"]
+  # conf.layout_builder_class_name = CustomLayoutBuilder
   # conf.devise_for 'releaf/admin'
 end
