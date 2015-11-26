@@ -1,5 +1,4 @@
 before_script:
-  - export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin
   - export RAILS_ENV=test
   - export COVERAGE=y
   - export CI=y
