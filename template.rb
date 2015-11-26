@@ -121,12 +121,12 @@ run "spring binstub --all"
 route "mount_releaf_at '/admin'"
 if public_site
   route "
-    Releaf::Content::Route.for(HomePage).each do|route|
-      get route.params('home_pages#show')
+    releaf_routes_for(HomePage) do
+      get 'show'
     end
 
-    Releaf::Content::Route.for(TextPage).each do|route|
-      get route.params('text_pages#show')
+    releaf_routes_for(TextPage) do
+      get 'show'
     end
     root to: 'application#redirect_to_locale_root'
   "
