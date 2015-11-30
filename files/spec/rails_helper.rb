@@ -2,10 +2,10 @@ require 'simplecov'
 require 'simplecov-rcov'
 
 if ENV["COVERAGE"]
-  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
     SimpleCov::Formatter::HTMLFormatter,
     SimpleCov::Formatter::RcovFormatter
-  ]
+  ])
   SimpleCov.start 'rails' do
     add_filter 'vendor'
     add_filter 'config/'
@@ -69,7 +69,6 @@ RSpec.configure do |config|
   if ENV['CI']
     config.tty = true
     config.add_formatter(:progress)
-    config.add_formatter("ParallelTests::RSpec::RuntimeLogger", "tmp/parallel_runtime_rspec.log")
   end
 
   # DEVISE
