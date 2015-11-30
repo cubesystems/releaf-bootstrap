@@ -27,8 +27,6 @@ gem_group :development, :test do
   gem "factory_girl_rails", require: false
 end
 
-gsub_file 'Gemfile', "gem 'mysql2'", "gem 'mysql2', '~> 0.3.18'", verbose: false
-
 run "bundle install"
 run "rails generate releaf:install"
 
