@@ -18,7 +18,7 @@
         %ul.menu
           - menu.each do|menu_node|
             %li{class: (node_active?(menu_node) ? 'active' : '')}<>
-              = link_to(menu_node.name, menu_node.url)
+              = link_to(menu_node.name, menu_node.path)
       %content
         = yield
 

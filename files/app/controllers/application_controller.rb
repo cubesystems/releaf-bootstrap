@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     target_root = select_root_by_client_locale || available_roots.first
     raise PageNotFound, "No locale roots found" if target_root.blank?
 
-    redirect_to target_root.url
+    redirect_to target_root.path
   end
 
   def translation_scope

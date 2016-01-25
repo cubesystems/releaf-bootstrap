@@ -15,17 +15,17 @@ feature "Menu" do
   end
 
   scenario "menu ordering" do
-    visit @nodes[:lv_root].url
+    visit @nodes[:lv_root].path
     expect( page ).to have_css('.menu li', count: 2)
     expect( page ).to have_css('.menu li:first-child a', text: "about us")
     expect( page ).to have_css('.menu li:last-child a', text: "contacts")
 
-    visit @nodes[:en_root].url
+    visit @nodes[:en_root].path
     expect( page ).to have_css('.menu li', count: 0)
   end
 
   scenario "highlight current node" do
-    visit @nodes[:lv_root].url
+    visit @nodes[:lv_root].path
     expect( page ).to have_no_css('.menu li.active', text: "about us")
     expect( page ).to have_no_css('.menu li.active', text: "contacts")
 
@@ -37,7 +37,7 @@ feature "Menu" do
     expect( page ).to have_css('.menu li.active', text: "about us")
     expect( page ).to have_no_css('.menu li.active', text: "contacts")
 
-    visit @nodes[:lv_contacts_shop].url
+    visit @nodes[:lv_contacts_shop].path
     expect( page ).to have_no_css('.menu li.active', text: "about us")
     expect( page ).to have_css('.menu li.active', text: "contacts")
   end
