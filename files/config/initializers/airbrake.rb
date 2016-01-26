@@ -2,6 +2,7 @@ Airbrake.configure do |config|
   config.project_key  = '_error_report_key_'
   config.project_id  = '_error_report_key_'
   config.host         = 'https://office.cube.lv'
+  config.environment = Rails.env
   config.ignore_environments = %w(development test)
 end
 
