@@ -119,11 +119,11 @@ run "spring binstub --all"
 route "mount_releaf_at '/admin'"
 if public_site
   route "
-    releaf_routes_for(HomePage) do
+    node_routes_for(HomePage) do
       get 'show'
     end
 
-    releaf_routes_for(TextPage) do
+    node_routes_for(TextPage) do
       get 'show'
     end
     root to: 'application#redirect_to_locale_root'
