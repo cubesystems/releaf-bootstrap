@@ -108,9 +108,6 @@ RSpec.configure do |config|
     DatabaseCleaner[:active_record].clean_with(:truncation)
     I18n.locale = Releaf.application.config.available_locales.first
     I18n.default_locale = Releaf.application.config.available_locales.first
-
-    # disable empty translation creation
-    Releaf::I18nDatabase.create_missing_translations = false
   end
 
   config.before(:each) do
@@ -131,6 +128,9 @@ RSpec.configure do |config|
     [:lv, :en].each do |locale|
       I18n.backend.store_translations(locale, date_and_time_translations)
     end
+
+    # disable empty translation creation
+    allow( Releaf.application.config.i18n_database ).to receive(:create_missing_translations).and_return(false)
 
     # never reload (clear) releaf translations cache
     allow_any_instance_of(Releaf::I18nDatabase::Backend).to receive(:reload_cache?) { false }
