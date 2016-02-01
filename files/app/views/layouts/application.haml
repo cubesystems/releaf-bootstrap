@@ -11,9 +11,9 @@
         %ul.locales
           - Releaf.application.config.available_locales.each do|locale|
             %li
-              = link_to(t("locale.#{locale}"), "/" + locale)
+              = link_to(t("locale.#{locale}"), "/#{locale}")
         .logo
-          = link_to(I18n.locale) do
+          = link_to("/#{I18n.locale}") do
             %span= "_application_name_"
         %ul.menu
           - menu.each do|menu_node|

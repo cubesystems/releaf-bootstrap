@@ -116,18 +116,18 @@ rake "db:migrate", env: "test"
 
 run "spring binstub --all"
 
-route "mount_releaf_at '/admin'"
+route 'mount_releaf_at "/admin"'
 if public_site
-  route "
+  route '
     node_routes_for(HomePage) do
-      get 'show'
+      get "show", as: "home"
     end
 
     node_routes_for(TextPage) do
-      get 'show'
+      get "show"
     end
-    root to: 'application#redirect_to_locale_root'
-  "
+    root to: "application#redirect_to_locale_root"
+  '
 end
 
 git :init
