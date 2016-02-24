@@ -13,7 +13,6 @@ gem 'airbrake'
 gem 'http_accept_language'
 
 gem_group :development, :test do
-  gem 'parallel_tests'
   gem 'poltergeist'
   gem 'minitest'
   gem 'rspec-rails'
