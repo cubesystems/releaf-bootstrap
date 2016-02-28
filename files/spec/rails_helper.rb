@@ -132,9 +132,6 @@ RSpec.configure do |config|
     # disable empty translation creation
     allow( Releaf.application.config.i18n_database ).to receive(:create_missing_translations).and_return(false)
 
-    # never reload (clear) releaf translations cache
-    allow_any_instance_of(Releaf::I18nDatabase::Backend).to receive(:reload_cache?) { false }
-
     SimpleCov.command_name "RSpec:#{Process.pid}#{ENV['TEST_ENV_NUMBER']}"
 
     if Capybara.current_driver == :rack_test
