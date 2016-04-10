@@ -12,5 +12,5 @@ before_script:
 rspec:
   script:
     - rake spec
-    - ssh coverages@office.cubesystems.lv mkdir -p public/_application_name_/
-    - rsync -a coverage/ coverages@office.cubesystems.lv:~/public/_application_name_/$CI_BUILD_REF_NAME/
+    - ssh coverages@coverages.cubesystems.lv mkdir -p public/_application_name_/
+    - rsync -a coverage/ coverages@coverages.cubesystems.lv:~/public/_application_name_/$CI_BUILD_REF_NAME/
