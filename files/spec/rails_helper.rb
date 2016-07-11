@@ -72,7 +72,7 @@ RSpec.configure do |config|
   end
 
   # DEVISE
-  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
   # FactoryGirl
   config.include FactoryGirl::Syntax::Methods
