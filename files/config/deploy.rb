@@ -1,7 +1,6 @@
 set :application, '_application_name_'
 set :repo_url, '_repo_url_'
 
-# Default value for linked_dirs is []
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :linked_files, %w{config/database.yml config/secrets.yml}
 set :whenever_variables, -> { "'environment=#{fetch(:rails_env)}&deploy_to=#{fetch(:deploy_to)}'"}

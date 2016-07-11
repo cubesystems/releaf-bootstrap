@@ -1,2 +1,2 @@
-server 'office.cubesystems.lv', user: 'demo', roles: %w{web app db}
-set :deploy_to, '/home/demo/_application_name_'
+server 'staging.cubesystems.lv', user: '_application_name_', roles: %w{web app db}
+set :deploy_to, '/home/_application_name_/app'
