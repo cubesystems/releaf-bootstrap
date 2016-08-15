@@ -64,7 +64,7 @@ include Warden::Test::Helpers
 
 RSpec.configure do |config|
   config.include NodeHelpers
-  config.include Releaf::TestHelpers
+  config.include Releaf::Test::Helpers
 
   if ENV['CI']
     config.tty = true
@@ -155,5 +155,6 @@ RSpec.configure do |config|
 
     DatabaseCleaner.clean
     Warden.test_reset!
+    Releaf::Test.reset!
   end
 end
