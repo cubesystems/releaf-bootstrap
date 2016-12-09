@@ -8,7 +8,7 @@ gem 'capistrano-rails'
 gem 'capistrano-rvm'
 gem 'capistrano-bundler'
 gem 'capistrano3-unicorn'
-gem 'releaf', git: 'https://github.com/cubesystems/releaf', branch: 'master'
+gem 'releaf'
 gem 'airbrake'
 gem 'http_accept_language'
 

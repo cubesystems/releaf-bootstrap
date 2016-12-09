@@ -111,26 +111,8 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    date_and_time_translations = {
-      time: {
-        formats: {
-          default: "%Y.%m.%d %H:%M"
-        }
-      },
-      date: {
-        formats: {
-          default: "%d.%m.%Y"
-        }
-      }
-    }
-
-    # store  date and time translations
-    [:lv, :en].each do |locale|
-      I18n.backend.store_translations(locale, date_and_time_translations)
-    end
-
     # disable empty translation creation
-    allow( Releaf.application.config.i18n_database ).to receive(:create_missing_translations).and_return(false)
+    allow( Releaf.application.config.i18n_database ).to receive(:translation_auto_creation).and_return(false)
 
     SimpleCov.command_name "RSpec:#{Process.pid}#{ENV['TEST_ENV_NUMBER']}"
 
