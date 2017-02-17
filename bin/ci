@@ -1,4 +1,4 @@
-gem install rails -v 4.2.5
+gem install rails -v 4.2.7.1
 WITH_FRONTEND=true rails new dummy_site -d mysql -m template.rb
 cd dummy_site
 rspec
