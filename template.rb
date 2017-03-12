@@ -1,16 +1,20 @@
 BASE_URL = ENV["BASE_URL"] || "https://raw.githubusercontent.com/cubesystems/releaf-bootstrap/master/"
 public_site = ENV['WITH_FRONTEND'].present? || yes?('Install basic frontend support? (yes/no)')
 
-gem 'whenever', require: false
 gem 'unicorn'
-gem 'capistrano'
-gem 'capistrano-rails'
-gem 'capistrano-rvm'
-gem 'capistrano-bundler'
-gem 'capistrano3-unicorn'
 gem 'releaf'
 gem 'airbrake'
 gem 'http_accept_language'
+
+gem_group :development, :deployment do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-scm-gitcopy'
+  gem 'whenever', require: false
+end
 
 gem_group :development, :test do
   gem 'poltergeist'
